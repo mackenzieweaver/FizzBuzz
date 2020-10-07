@@ -84,13 +84,9 @@
                     )">
                         Create
                     </button>
+                    <button id="btnExport" class="btn btn-primary" onclick="exportReportToExcel(this)">xls</button>
                 </div>
-            </div>
-
-            <!--<div class="row justify-content-center">
-                <p id="console-help">*Press F12 or right click then "inspect" and select the "console" tab</p>
-            </div>-->
-
+            </div>            
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
@@ -116,6 +112,9 @@
 
     <!-- Sweet Alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Table Export -->
+    <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
 
 </body>
 
