@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\tacos.png" />
+    <Content Include="Assets\FizzBuzz_4pack.jpg" />
     <Content Include="Code.html" />
     <Content Include="Content\CustomCSS.css" />
     <Content Include="Content\IndexCustomCSS.css" />

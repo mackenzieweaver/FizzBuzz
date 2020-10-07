@@ -64,51 +64,30 @@
                 <h1 class="mt-5">The Solution</h1>
             </div>
         </div>
-        <!-- ================== Palindrome ================== -->
+        <!-- ================== Fizz Buzz ================== -->
         <div class="jumbotron text-center">
-            <h3 class="display-4">Cat Taco</h3>
+            <h3 class="display-4">Fizz Buzz</h3>
             <p>
-                Enter a word or phrase in the box and click 'check'. Clear will clear the input box and refocus it.
+                The program iterates through all numbers from 1 to the upper limit that you input. It prints all numbers in ascending order to the browser console. For each number that is a multiple of the first number input, "Fizz" will print instead of the number. For each number that is a multiple of the second number input, "Buzz" will print instead of the number. For numbers that are multiples of both numbers, "FizzBuzz" will print instead of the number.
             </p>
             <hr class="my-4">
-
-            <div id="palindrome-section" class="row justify-content-center input-group mb-3">
-                <input id="user-palindrome" type="text" class="form-control" placeholder="Enter a word..." />
-                <div class="input-group-append">
-                    <button id="clear-palindrome" class="btn btn-danger" onclick="ClearPalindrome()">Clear</button>
-                    <button class="btn btn-dark" onclick="Palindrome(document.getElementById('user-palindrome').value)">Check</button>
-                </div>
+            <div id="fizz-buzz-section" class="row  justify-content-center">
+                <input id="fizz-num" type="number" placeholder="Fizz Number" min="0" oninput="validity.valid||(value='');" />
+                <input id="buzz-num" type="number" placeholder="Buzz Number" min="0" oninput="validity.valid||(value='');" />
+                <input id="upper-limit" type="number" placeholder="Upper Limit" min="0" oninput="validity.valid||(value='');" />
+                <button id="clear-fizz-buzz" class="btn btn-danger" onclick="ClearFizzBuzz()">Clear</button>
             </div>
-
-            <div id="checkboxes" class="row justify-content-center">
-                <!-- All -->
-                <div class="palindrome-checkbox">
-                    <input type="checkbox" id="check-all" name="check-all" value="check-all" onclick="CheckAll()">
-                    <label for="check-all"> All: </label><br>
-                </div>
-                <!-- Case Sensitive -->
-                <div class="palindrome-checkbox">
-                    <input type="checkbox" id="case-sensitive" name="case-sensitive" value="case-sensitive">
-                    <label for="case-sensitive"> Ignore Case</label><br>
-                </div>
-                <!-- Number Sensitive -->
-                <div class="palindrome-checkbox">
-                    <input type="checkbox" id="number-sensitive" name="number-sensitive" value="number-sensitive">
-                    <label for="number-sensitive"> Ignore Numbers</label><br>
-                </div>
-                <!-- Special Character Sensitive -->
-                <div class="palindrome-checkbox">
-                    <input type="checkbox" id="special-char-sensitive" name="special-char-sensitive" value="special-char-sensitive">
-                    <label for="special-char-sensitive"> Ignore Special Characters</label><br>
-                </div>
+            <div class="row  justify-content-center">
+                <button class="btn btn-dark" onclick="FizzBuzz(
+                parseInt(document.getElementById('fizz-num').value),
+                parseInt(document.getElementById('buzz-num').value),
+                parseInt(document.getElementById('upper-limit').value)
+                )">
+                    Check the console
+                </button>
             </div>
             <div class="row justify-content-center">
-                <div class="p-3 mb-5 bg-white rounded">Reversed: <span id="reversed-word"></span></div>
-                <!--<p class="result-class text-left">Reversed String: <span id="reversed-word"></span></p>-->
-            </div>
-            <div class="row justify-content-center">
-                <div class="p-3 mb-5 bg-white rounded">Result: <span id="palindrome-result"></span></div>
-                <!--<p class="result-class text-left">Result: <span id="palindrome-result"></span></p>-->
+                <p id="console-help">*Press F12 or right click then "inspect" and select the "console" tab</p>
             </div>
         </div>
     </div>
