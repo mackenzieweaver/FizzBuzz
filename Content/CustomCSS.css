@@ -1,4 +1,4 @@
-﻿h1, #determine-nums, #determine-btns, #factorial-section, #palindrome-section, #fizz-buzz-section {
+﻿h1 {
     margin-bottom: 30px;
 }
 
@@ -11,23 +11,14 @@
     margin-right: 10px;
 }
 
-#fizz-num, #buzz-num, #upper-limit {
+/*#fizz-num, #buzz-num, #upper-limit {
     width: 125px;
     margin-right: 10px;
-}
+}*/
 
 #numbers-result, #factorial-result, #palindrome-result {
     min-height: 30px;
 }
-
-#palindrome-section {
-    width: 60%;
-    margin-left: 20%;
-}
-
-/*#factorial-number, #user-palindrome, #clear-fact-btn, #clear-palindrome {
-    margin-right: 10px;
-}*/
 
 .result-class {
     outline: 1px solid gray;
@@ -61,4 +52,8 @@
 #reversed-word, #palindrome-result {
     width: 100%;
     text-align: end;
+}
+
+.input-group {
+    margin-bottom: 30px;
 }
