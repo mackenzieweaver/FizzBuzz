@@ -1,7 +1,7 @@
 ﻿// Fizz Buzz
 function FizzBuzz(fizz, buzz, upperLimit) {
 
-    const table = document.getElementById("fizz-buzz-table");
+    const table = document.getElementById("fizz-buzz-table-body");
 
     for (let i = 1; i <= upperLimit; i++) {
         // new table row
@@ -15,37 +15,41 @@ function FizzBuzz(fizz, buzz, upperLimit) {
 
         // fizz table data
         if (i % fizz == 0) {
-            console.log('Fizz');
-            // fizz data
+            // insert fizz
             cell = row.insertCell();
             text = document.createTextNode("Fizz");
+            cell.style.color = '#66d9cd';
             cell.appendChild(text);
         } else {
-            // fizz data
+            // insert x
             cell = row.insertCell();
             text = document.createTextNode("x");
             cell.appendChild(text);
         }
+
+        // buzz table data
         if (i % buzz == 0) {
-            console.log('Buzz');
-            // buzz data
+            // insert buzz
             cell = row.insertCell();
-            text = document.createTextNode("buzz");
+            text = document.createTextNode("Buzz");
+            cell.style.color = '#c22722';
             cell.appendChild(text);
         } else {
-            // buzz data
+            // insert x
             cell = row.insertCell();
             text = document.createTextNode("x");
             cell.appendChild(text);
         }
+
+        // fizz buzz table data
         if ((i % fizz == 0) && (i % buzz == 0)) {
-            console.log('Fizz Buzz');
-            // fizz buzz data
+            // insert fizz buzz
             cell = row.insertCell();
             text = document.createTextNode("Fizz Buzz");
+            cell.style.color = '#c68a21';
             cell.appendChild(text);
         } else {
-            // fizz buzz data
+            // insert x
             cell = row.insertCell();
             text = document.createTextNode("x");
             cell.appendChild(text);
@@ -57,41 +61,12 @@ function ClearFizzBuzz() {
     document.getElementById("fizz-num").value = '';
     document.getElementById("buzz-num").value = '';
     document.getElementById("upper-limit").value = '';
-    document.getElementById("fizz-buzz-table").remove();
+    removeAllChildNodes(document.getElementById("fizz-buzz-table-body"));
     document.getElementById("fizz-num").focus();
 }
 
-(function BuildTable() {
-    const table = document.getElementById("fizz-buzz-table");
-    BuildTableHead(table);
-})();
-
-function BuildTableHead(table) {
-    let thead = table.createTHead();
-    let row = thead.insertRow();
-
-    let th1 = document.createElement("th");
-    let text1 = document.createTextNode("#");
-    th1.appendChild(text1);
-    row.appendChild(th1);
-
-    let th2 = document.createElement("th");
-    let text2 = document.createTextNode("Fizz");
-    th2.appendChild(text2);
-    row.appendChild(th2);
-
-    let th3 = document.createElement("th");
-    let text3 = document.createTextNode("Buzz");
-    th3.appendChild(text3);
-    row.appendChild(th3);
-
-    let th4 = document.createElement("th");
-    let text4 = document.createTextNode("Fizz Buzz");
-    th4.appendChild(text4);
-    row.appendChild(th4);
-
-    document.getElementsByTagName("TH")[0].setAttribute("scope", "col");
-    document.getElementsByTagName("TH")[1].setAttribute("scope", "col");
-    document.getElementsByTagName("TH")[2].setAttribute("scope", "col");
-    document.getElementsByTagName("TH")[3].setAttribute("scope", "col");
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
