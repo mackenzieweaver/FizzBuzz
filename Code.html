@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Javascript Challenges</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/Krona_One/favicon-32x32.png">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Prism CSS -->
+    <link href="Content/prism.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="/Index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Index.html">Intro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Solve.html">Solution</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Code.html">The Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/mackenzieweaver/TacoCat" target="_blank">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://mackenzie-weaver.netlify.app/" target="_blank">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://docs.google.com/document/d/1L77M_9toATUd6kmaRl42XJozB3CUa3GKoGhOojrdNbU/edit?usp=sharing" target="_blank">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://youtu.be/cBKYjYE_bBk" target="_blank">YouTube</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 text-center offset-2">
+                <h1 class="mt-5">Click on something to see my javascript code</h1>
+                <p class="lead">Syntax is highlighted using Prism.js</p>
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Taco Cat
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <div class="card-body">
+<pre>
+<code class="language-js">// Palindrome
+function Palindrome(word) {
+    const c = document.getElementById("case-sensitive").checked;
+    const n = document.getElementById("number-sensitive").checked;
+    const s = document.getElementById("special-char-sensitive").checked;
+
+    const e = document.getElementById("palindrome-result");
+    const r = document.getElementById("reversed-word");
+
+    if (c) {
+        word = word.toLowerCase();
+    }
+
+    if (n) {
+        word = word.replace(/[0-9]/g, '');
+    }
+
+    if (s) {
+        word = word.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]|\s/gi, '');
+    }
+
+    if (!word) {
+        e.innerHTML = `<b>n/a</b>`;
+        swal("You made Taco Cat sad", "Because you didn't enter a word", "error");
+        return;
+    }
+
+    let reverse = word.split('').reverse().join('');
+    r.innerHTML = `<b>${reverse}</b>`;
+    if (word == reverse) {
+        e.innerHTML = `<b>Palindrome!</b>`;
+    } else {
+        e.innerHTML = `<b>Not a palindrome...</b>`;
+    }
+}</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFive">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Clear Button
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                            <div class="card-body">
+<pre>
+<code class="language-js">// Clear Button
+function ClearPalindrome() {
+    document.getElementById("user-palindrome").value = '';
+    document.getElementById("palindrome-result").innerHTML = '';
+    document.getElementById("reversed-word").innerHTML = '';
+    document.getElementById("user-palindrome").focus();
+}</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="//code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="Scripts/prism.js"></script>
+</body>
+
+</html>
