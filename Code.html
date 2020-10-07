@@ -66,49 +66,70 @@
                 <p class="lead">Syntax is highlighted using Prism.js</p>
                 <div class="accordion" id="accordionExample">
                     <div class="card">
-                        <div class="card-header" id="headingFour">
+                        <div class="card-header" id="headingFizz">
                             <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Taco Cat
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFizz" aria-expanded="false" aria-controls="collapseFizz">
+                                    Fizz Buzz
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div id="collapseFizz" class="collapse" aria-labelledby="headingFizz" data-parent="#accordionExample">
                             <div class="card-body">
 <pre>
-<code class="language-js">// Palindrome
-function Palindrome(word) {
-    const c = document.getElementById("case-sensitive").checked;
-    const n = document.getElementById("number-sensitive").checked;
-    const s = document.getElementById("special-char-sensitive").checked;
-
-    const e = document.getElementById("palindrome-result");
-    const r = document.getElementById("reversed-word");
-
-    if (c) {
-        word = word.toLowerCase();
+<code class="language-js">// Fizz Buzz
+function FizzBuzz(fizz, buzz, upperLimit) {
+    if (isNaN(upperLimit)) {
+        swal("Your Fizz is not Buzzin", "Because you didn't enter an upper limit", "error");
     }
-
-    if (n) {
-        word = word.replace(/[0-9]/g, '');
-    }
-
-    if (s) {
-        word = word.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]|\s/gi, '');
-    }
-
-    if (!word) {
-        e.innerHTML = `<b>n/a</b>`;
-        swal("You made Taco Cat sad", "Because you didn't enter a word", "error");
-        return;
-    }
-
-    let reverse = word.split('').reverse().join('');
-    r.innerHTML = `<b>${reverse}</b>`;
-    if (word == reverse) {
-        e.innerHTML = `<b>Palindrome!</b>`;
-    } else {
-        e.innerHTML = `<b>Not a palindrome...</b>`;
+    removeAllChildNodes(document.getElementById("fizz-buzz-table-body"));
+    const table = document.getElementById("fizz-buzz-table-body");
+    for (let i = 1; i <= upperLimit; i++) {
+        // new table row
+        let row = table.insertRow();
+        row.setAttribute("scope", "row");
+        // # table data
+        let cell = row.insertCell();
+        let text = document.createTextNode(i.toString());
+        cell.appendChild(text);
+        // fizz table data
+        if (i % fizz == 0) {
+            // insert fizz
+            cell = row.insertCell();
+            text = document.createTextNode("Fizz");
+            cell.style.color = '#66d9cd';
+            cell.appendChild(text);
+        } else {
+            // insert x
+            cell = row.insertCell();
+            text = document.createTextNode("x");
+            cell.appendChild(text);
+        }
+        // buzz table data
+        if (i % buzz == 0) {
+            // insert buzz
+            cell = row.insertCell();
+            text = document.createTextNode("Buzz");
+            cell.style.color = '#c22722';
+            cell.appendChild(text);
+        } else {
+            // insert x
+            cell = row.insertCell();
+            text = document.createTextNode("x");
+            cell.appendChild(text);
+        }
+        // fizz buzz table data
+        if ((i % fizz == 0) && (i % buzz == 0)) {
+            // insert fizz buzz
+            cell = row.insertCell();
+            text = document.createTextNode("Fizz Buzz");
+            cell.style.color = '#c68a21';
+            cell.appendChild(text);
+        } else {
+            // insert x
+            cell = row.insertCell();
+            text = document.createTextNode("x");
+            cell.appendChild(text);
+        }
     }
 }</code>
 </pre>
@@ -116,22 +137,71 @@ function Palindrome(word) {
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingFive">
+                        <div class="card-header" id="headingClearFizzBuzz">
                             <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    Clear Button
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseClearFizzBuzz" aria-expanded="false" aria-controls="collapseFive">
+                                    Clear Fizz Buzz
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                        <div id="collapseClearFizzBuzz" class="collapse" aria-labelledby="headingClearFizzBuzz" data-parent="#accordionExample">
                             <div class="card-body">
 <pre>
-<code class="language-js">// Clear Button
-function ClearPalindrome() {
-    document.getElementById("user-palindrome").value = '';
-    document.getElementById("palindrome-result").innerHTML = '';
-    document.getElementById("reversed-word").innerHTML = '';
-    document.getElementById("user-palindrome").focus();
+<code class="language-js">function ClearFizzBuzz() {
+    document.getElementById("fizz-num").value = '';
+    document.getElementById("buzz-num").value = '';
+    document.getElementById("upper-limit").value = '';
+    removeAllChildNodes(document.getElementById("fizz-buzz-table-body"));
+    document.getElementById("fizz-num").focus();
+}</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingremoveAllChildNodes">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseremoveAllChildNodes" aria-expanded="false" aria-controls="collapseremoveAllChildNodes">
+                                    Remove All Child Nodes
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseremoveAllChildNodes" class="collapse" aria-labelledby="headingremoveAllChildNodes" data-parent="#accordionExample">
+                            <div class="card-body">
+<pre>
+<code class="language-js">function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }   
+}</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingexportReportToExcel">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseexportReportToExcel" aria-expanded="false" aria-controls="collapseexportReportToExcel">
+                                    Export Report To Excel
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseexportReportToExcel" class="collapse" aria-labelledby="headingexportReportToExcel" data-parent="#accordionExample">
+                            <div class="card-body">
+<pre>
+<code class="language-js">// Export Table
+function exportReportToExcel() {
+    if (document.getElementById("fizz-buzz-table-body").childElementCount == 0) {
+        swal("Table is empty", "Why would you want to download that?", "error");
+        return;
+    }
+    let table = document.getElementById("fizz-buzz-table"); 
+    TableToExcel.convert(table, { 
+        name: `fizzbuzz.xlsx`,
+        sheet: {
+            name: 'Sheet 1' // sheetName
+        }
+    });
 }</code>
 </pre>
                             </div>
