@@ -1,19 +1,18 @@
 ﻿// Fizz Buzz
 function FizzBuzz(fizz, buzz, upperLimit) {
+    if (isNaN(upperLimit)) {
+        swal("Your Fizz is not Buzzin", "Because you didn't enter an upper limit", "error");
+    }
     removeAllChildNodes(document.getElementById("fizz-buzz-table-body"));
-
     const table = document.getElementById("fizz-buzz-table-body");
-
     for (let i = 1; i <= upperLimit; i++) {
         // new table row
         let row = table.insertRow();
         row.setAttribute("scope", "row");
-
         // # table data
         let cell = row.insertCell();
         let text = document.createTextNode(i.toString());
         cell.appendChild(text);
-
         // fizz table data
         if (i % fizz == 0) {
             // insert fizz
@@ -27,7 +26,6 @@ function FizzBuzz(fizz, buzz, upperLimit) {
             text = document.createTextNode("x");
             cell.appendChild(text);
         }
-
         // buzz table data
         if (i % buzz == 0) {
             // insert buzz
@@ -41,7 +39,6 @@ function FizzBuzz(fizz, buzz, upperLimit) {
             text = document.createTextNode("x");
             cell.appendChild(text);
         }
-
         // fizz buzz table data
         if ((i % fizz == 0) && (i % buzz == 0)) {
             // insert fizz buzz
@@ -74,6 +71,10 @@ function removeAllChildNodes(parent) {
 
 // Export Table
 function exportReportToExcel() {
+    if (document.getElementById("fizz-buzz-table-body").childElementCount == 0) {
+        swal("Table is empty", "Why would you want to download that?", "error");
+        return;
+    }
     let table = document.getElementsByTagName("table"); // you can use document.getElementById('tableId') as well by providing id to the table tag
     TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
         name: `export.xlsx`, // fileName you could use any name
