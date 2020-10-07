@@ -74,12 +74,12 @@
         <div class="jumbotron text-center">
             <h3 class="display-4">Fizz Buzz</h3>
             <p>
-                The program iterates through all numbers from 1 to the upper limit that you input. It prints all numbers in ascending order to the browser console. For each number that is a multiple of the first number input, "Fizz" will print instead of the number. For each number that is a multiple of the second number input, "Buzz" will print instead of the number. For numbers that are multiples of both numbers, "FizzBuzz" will print instead of the number.
+                Enter in a fizz number, buzz number, upper limit number and click create to build a table which will tell you the line number and whether that number is a multiple of fizz, buzz, or both. You can download the table in xlsx format if you would like.
             </p>
             <hr class="my-4">
             <div class="input-group">
-                <input id="fizz-num" type="number" class="form-control" placeholder="Fizz Number" min="0" oninput="validity.valid||(value='');" />
-                <input id="buzz-num" type="number" class="form-control" placeholder="Buzz Number" min="0" oninput="validity.valid||(value='');" />
+                <input id="fizz-num" type="number" class="form-control" placeholder="Fizz Number" min="0" max="5000" oninput="validity.valid||(value='');" />
+                <input id="buzz-num" type="number" class="form-control" placeholder="Buzz Number" min="0" max="5000" oninput="validity.valid||(value='');" />
                 <input id="upper-limit" type="number" class="form-control" placeholder="Upper Limit" min="0" max="5000" oninput="validity.valid||(value='');" />
                 <div class="input-group-append" id="button-addon4">
                     <button id="clear-fizz-buzz" class="btn btn-danger" onclick="ClearFizzBuzz()">Clear</button>
