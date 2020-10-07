@@ -75,9 +75,9 @@ function exportReportToExcel() {
         swal("Table is empty", "Why would you want to download that?", "error");
         return;
     }
-    let table = document.getElementsByTagName("table"); // you can use document.getElementById('tableId') as well by providing id to the table tag
-    TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
-        name: `export.xlsx`, // fileName you could use any name
+    let table = document.getElementById("fizz-buzz-table"); // you can use document.getElementById('tableId') as well by providing id to the table tag
+    TableToExcel.convert(table, { // html code may contain multiple tables so here we are refering to 1st table tag
+        name: `fizzbuzz.xlsx`, // fileName you could use any name
         sheet: {
             name: 'Sheet 1' // sheetName
         }
