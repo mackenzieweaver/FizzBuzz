@@ -1,5 +1,6 @@
 ﻿// Fizz Buzz
 function FizzBuzz(fizz, buzz, upperLimit) {
+    removeAllChildNodes(document.getElementById("fizz-buzz-table-body"));
 
     const table = document.getElementById("fizz-buzz-table-body");
 
