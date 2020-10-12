@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\challenge-1.png" />
+    <Content Include="Assets\fizzbuzz.png" />
     <Content Include="Assets\FizzBuzz_4pack.jpg" />
     <Content Include="Code.html" />
     <Content Include="Content\CustomCSS.css" />
